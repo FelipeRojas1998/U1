@@ -1,4 +1,4 @@
-#Actividad 01
+# Actividad 01
 Implementar un script BASH que permita obtener los N permisos de circulación más caros. Debe mostrar los siguientes datos:
 
 * Marca, Modelo, Versión
@@ -8,7 +8,7 @@ Implementar un script BASH que permita obtener los N permisos de circulación m�
 
 La ruta del archivo de datos debe ser ingresado como parámetro, al igual que la cantidad de permisos a obtener. El archivo de datos a utilizar es ```liv2019.csv```.
 
-##Ejemplo de ejecución
+## Ejemplo de ejecución
 
 ```
 Modelo  : MCLAREN P1 SIN VERSION
