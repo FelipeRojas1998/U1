@@ -16,7 +16,7 @@ Consultar el archivo localizado en ```Ruta/al/archiov/liv2019.csv``` y obtener l
 ./querydata -f /Ruta/al/archiov/liv2019.csv -N 4
 ```
 
-Salida esperada:
+Salida esperada (extracto):
 
 ```
 Modelo  : MCLAREN P1 SIN VERSION
