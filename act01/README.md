@@ -10,6 +10,14 @@ La ruta del archivo de datos debe ser ingresado como parámetro, al igual que la
 
 ## Ejemplo de ejecución
 
+Consultar el archivo localizado en ```Ruta/al/archiov/liv2019.csv``` y obtener los 4 permisos más caros.
+
+```
+./querydata -f /Ruta/al/archiov/liv2019.csv -N 4
+```
+
+Salida esperada:
+
 ```
 Modelo  : MCLAREN P1 SIN VERSION
 Año     : 2015
