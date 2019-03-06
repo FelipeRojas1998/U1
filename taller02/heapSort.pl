@@ -14,31 +14,30 @@ my @DATOSORDENAR;
 my @DATOSORDENADOS;
 my $OPERACIONES;
 
-main:{
-  my ($fileName, $fileHandler);
-  my $elapsed;
-  my $total_datos;
- 
-  my @tiempos;
-  my $range = 1000000000;
+main: {
+    my $elapsed;
+    my $total_datos;
 
-  GetOptions ("size=i" => \$total_datos,
-              "debug" => \$DEBUG
-			  );
-			  
-  die "$0 requiere el tamano de los datos (--size)\n" unless $total_datos;
+    my @tiempos;
+    my $range = 1000000000;
 
-  srand(114);
-  @DATOSORIGINALES = ();
-  for (my $i = 0; $i < $total_datos; $i++) {
-    push @DATOSORIGINALES, int(rand($range));
-  }
+    GetOptions ("size=i" => \$total_datos,
+                "debug" => \$DEBUG
+               );
 
-  $elapsed = experimento();
-  print "Datos:Tiempo:Operaciones\n";
-  print "$total_datos:$elapsed:$OPERACIONES\n";
+    die "$0 requiere el tamano de los datos (--size)\n" unless $total_datos;
 
-  exit();
+    srand(114);
+    @DATOSORIGINALES = ();
+    for (my $i = 0; $i < $total_datos; $i++) {
+        push @DATOSORIGINALES, int(rand($range));
+    }
+
+    $elapsed = experimento();
+    print "Datos:Tiempo:Operaciones\n";
+    print "$total_datos:$elapsed:$OPERACIONES\n";
+
+    exit();
 }
 
 #
@@ -47,20 +46,20 @@ main:{
 
 sub experimento {
 
-	my $t0;
-	my $elapsed;
+    my $t0;
+    my $elapsed;
 
-	@DATOSORDENAR = @DATOSORIGINALES;
-	@DATOSORDENADOS = ();
+    @DATOSORDENAR = @DATOSORIGINALES;
+    @DATOSORDENADOS = ();
 
-	$t0 = [gettimeofday];
-	$OPERACIONES = 0;
-	heapSort();
-	$elapsed = tv_interval ( $t0, [gettimeofday]);
+    $t0 = [gettimeofday];
+    $OPERACIONES = 0;
+    heapSort();
+    $elapsed = tv_interval ( $t0, [gettimeofday]);
 
-	print join "\n", @DATOSORDENADOS, "\n" if $DEBUG == 1;
+    print join "\n", @DATOSORDENADOS, "\n" if $DEBUG == 1;
 
-	return($elapsed);
+return($elapsed);
 }
 
 
@@ -71,24 +70,24 @@ sub experimento {
 #
 
 sub heapSort {
-  my $n = scalar @DATOSORDENAR;
-  my $i;
+    my $n = scalar @DATOSORDENAR;
+    my $i;
 
-  # Construir el heap en base a los datos originales
-  for ($i = int($n/2)-1; $i >= 0; $i--) {
-    heapify($i);
-  }
+# Construir el heap en base a los datos originales
+    for ($i = int($n/2)-1; $i >= 0; $i--) {
+        heapify($i);
+    }
 
-  #Extraer uno por uno
-  for ($i = $n-1; $i >= 0; $i--) {
-    #Mover el raiz al final
-    swap(0,$i);
+#Extraer uno por uno
+    for ($i = $n-1; $i >= 0; $i--) {
+#Mover el raiz al final
+        swap(0,$i);
 
-    #Saco el ultimo elemento y lo agrego a @DATOSORDENADOS
-    unshift @DATOSORDENADOS, pop @DATOSORDENAR;
+#Saco el ultimo elemento y lo agrego a @DATOSORDENADOS
+        unshift @DATOSORDENADOS, pop @DATOSORDENAR;
 
-    heapify(0);
-  }
+        heapify(0);
+    }
 }
 
 #
@@ -98,49 +97,49 @@ sub heapSort {
 #
 
 sub heapify {
-  my $i = shift;
-  my $n = scalar @DATOSORDENAR;
+    my $i = shift;
+    my $n = scalar @DATOSORDENAR;
 
-  my ($mayor, $izq, $der);
+    my ($mayor, $izq, $der);
 
-  $mayor = $i;
-  $izq   = 2*$i + 1;
-  $der   = 2*$i + 2;
+    $mayor = $i;
+    $izq   = 2*$i + 1;
+    $der   = 2*$i + 2;
 
-  $OPERACIONES += 3;
+    $OPERACIONES += 3;
 
-  #Si el nodo de la izquierda es mayor que el raiz
-  if ($izq < $n && $DATOSORDENAR[$izq] > $DATOSORDENAR[$mayor]){
-    $mayor = $izq;
-  }
-  $OPERACIONES += 1;
+#Si el nodo de la izquierda es mayor que el raiz
+    if ($izq < $n && $DATOSORDENAR[$izq] > $DATOSORDENAR[$mayor]) {
+        $mayor = $izq;
+    }
+    $OPERACIONES += 1;
 
-  #Si el nodo de la derecha es mayor que el raiz
-  if ($der < $n && $DATOSORDENAR[$der] > $DATOSORDENAR[$mayor]){
-    $mayor = $der;
-  }
-  $OPERACIONES += 1;
+#Si el nodo de la derecha es mayor que el raiz
+    if ($der < $n && $DATOSORDENAR[$der] > $DATOSORDENAR[$mayor]) {
+        $mayor = $der;
+    }
+    $OPERACIONES += 1;
 
-  #Si el mayor no es el raiz
-  if ($mayor != $i) {
-    swap($i, $mayor);
-    heapify($mayor);
-  }
+#Si el mayor no es el raiz
+    if ($mayor != $i) {
+        swap($i, $mayor);
+        heapify($mayor);
+    }
 }
 
 #
 # $DATOSORDENAR[$i] <-> $DATOSORDENAR[$j]
 #
-sub swap{
-  my $i = $_[0];
-  my $j = $_[1];
+sub swap {
+    my $i = $_[0];
+    my $j = $_[1];
 
-  my $aux;
+    my $aux;
 
-  $aux = $DATOSORDENAR[$j];
-  $DATOSORDENAR[$j] = $DATOSORDENAR[$i];
-  $DATOSORDENAR[$i] = $aux;
+    $aux = $DATOSORDENAR[$j];
+    $DATOSORDENAR[$j] = $DATOSORDENAR[$i];
+    $DATOSORDENAR[$i] = $aux;
 
-  $OPERACIONES += 3;
+    $OPERACIONES += 3;
 }
 
