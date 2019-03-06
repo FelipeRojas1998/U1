@@ -10,7 +10,7 @@ La ruta del archivo de datos debe ser ingresado como parámetro, al igual que la
 
 ## Ejemplo de ejecución
 
-Consultar el archivo localizado en ```Ruta/al/archio/liv2019.csv``` y obtener los 4 permisos más caros.
+Consultar el archivo localizado en ```/Ruta/al/archio/liv2019.csv``` y obtener los 4 permisos más caros.
 
 ```
 ./querydata -f /Ruta/al/archio/liv2019.csv -N 4
