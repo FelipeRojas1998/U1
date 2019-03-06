@@ -2,7 +2,7 @@
 
 ## Parte 1: Trabajo guiado
 
-En este contexto, el alumno ejercitará comando básicos de BASH, en el servidor de la asignatura. Se repasarán los conceptos de procesos y comunicación entre procesos de la asignatura de Teoría de Sistemas Operativos y se concretizarán en el contexto del Sistema Operativo Linux y el intérprete de comandos Bash.
+En este contexto, el alumno ejercitará comando básicos de BASH, en el servidor de la asignatura y deberá aprender a manejar un editor de texto basado en consola. Se repasarán los conceptos de procesos y comunicación entre procesos de la asignatura de Teoría de Sistemas Operativos y se concretizarán en el contexto del Sistema Operativo Linux y el intérprete de comandos Bash.
 
 ## Parte 2: Trabajo grupal
 
