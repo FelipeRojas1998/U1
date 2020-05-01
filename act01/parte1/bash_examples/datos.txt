@@ -1,3 +1,0 @@
-juan:20:Soltero
-luis:40:Casado
-pedro:80:Viudo
