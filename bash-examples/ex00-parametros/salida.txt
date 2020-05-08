@@ -1,0 +1,2 @@
+-rw-r--r--@ 1 gabriel  staff  3293624 Apr 24 13:39 U1-01-unix-basico-shell.pdf
+-rw-r--r--@ 1 gabriel  staff  3293624 Apr 24 13:39 U1-01-unix-basico-shell.pdf
