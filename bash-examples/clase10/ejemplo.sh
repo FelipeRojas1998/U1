@@ -17,20 +17,24 @@ fi
 printf "Directorio busqueda: %s\n" $1
  
 #Idea de Jorge Rodriguez
-
 usePhoneFiles=(`find $searchDir -name '*.txt' -print | sort | grep usePhone | grep -v '._'`)
 
-rm -f fracaso.txt
+
+#idea: crear un archivo en donde las columna i-ésima representen la cantidad de personas 
+#      que utilizan el teléfono en el instante t=10i.
+#      Luego, procesar cada columna para calcular las estadísticas solicitadas
+
+tmpFile="fracaso.txt"
+rm -f $tmpFile
 for i in ${usePhoneFiles[*]}; 
 do	
 	printf "> %s\n" $i
 	tiempos=(`cat $i | tail -n+3 | cut -d ':' -f 3`)
 	for i in ${tiempos[*]};
 	do
-		printf "%d:" $i >> fracaso.txt
+		printf "%d:" $i >> $tmpFile
 	done
-	printf "\n" >> fracaso.txt
-	
+	printf "\n" >> $tmpFile
 done 
 
  
